@@ -32,3 +32,5 @@ package() {
 	# License
 	install -Dm644 "${srcdir}/license.html" "${pkgdir}/usr/share/licenses/${pkgname}/license.html"
 }
+
+
