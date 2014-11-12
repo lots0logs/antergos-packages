@@ -1,7 +1,7 @@
 # Alexandre Filgueira <alexfilgueira@antergos.com>
 
 pkgname=pyparted
-pkgver=3.10
+pkgver=3.10.1
 pkgrel=1
 pkgdesc="Python 3 module for GNU parted"
 url="https://fedorahosted.org/pyparted/"
@@ -9,16 +9,16 @@ arch=('i686' 'x86_64')
 license=('GPL2')
 depends=('python' 'parted>=3.0')
 provides=('pyparted')
-source=(https://fedorahosted.org/releases/p/y/pyparted/pyparted-${pkgver}.tar.gz)
-sha256sums=('bb8de71ba54983af84cf036002511cfb6d8fab4fc5e9a9be7236ecba6d24989f')
+source=(https://github.com/dcantrell/pyparted/archive/pyparted-${pkgver}.tar.gz)
+sha256sums=('0fc4d0fa3632bba15791f5c67d48ac63153ca4d15ac7e4e39c29337aaf13eea4')
 
 build() {
-  cd "${srcdir}"/${pkgname}-${pkgver}
+  cd "${srcdir}"/${pkgname}-${pkgname}-${pkgver}
   python setup.py build
 }
 
 package() {
-  cd "${srcdir}"/${pkgname}-${pkgver}
+  cd "${srcdir}"/${pkgname}-${pkgname}-${pkgver}
   python setup.py install --prefix=/usr --root="${pkgdir}" --optimize=1 --skip-build
 }
 
